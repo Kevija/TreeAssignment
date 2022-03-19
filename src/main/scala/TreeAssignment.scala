@@ -1,3 +1,5 @@
+import TreeAssignment.{height, maximumHeight, name, printTree, symbol}
+
 import scala.io.StdIn.readLine
 
 object TreeAssignment extends  App {
@@ -34,17 +36,14 @@ object TreeAssignment extends  App {
   def printTree(name: String, height: Int, symbol: Char = '*', maximumHeight: Int = 40): Unit = {
 
     val name1 = name + name * (height / name.length)
-    if (height > maximumHeight) {
-      println("It is too high!")
-
-    } else {
-      println(" " * (height - 1) + s"$symbol")
-    }
+    if (height > maximumHeight)
+     println("It is too high!")
+     else {
+     println(" " * (height - 1) + s"$symbol")
       for (i <- 2 to height) {
         val a = name1(i - 2).toString.toUpperCase
-        println(" " * (height - i) + a * (i * 2 - 1))
-      }}
-
-    printTree(name, height, symbol, maximumHeight)
-
+        println(" " * (height - i) + a * (i * 2 - 1))}
+      }
+  }
+  printTree(name, height, symbol, maximumHeight)
 }
